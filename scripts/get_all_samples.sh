@@ -1,4 +1,3 @@
 #!/bin/bash
-
-ls -ld ${bamdir}*/ > samples.txt
-
+bamdir=$(awk 'NR == 1' inbam_dir.txt)
+ls -F ${bamdir} | sed 's|/||' > samples.txt

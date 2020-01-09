@@ -5,12 +5,12 @@
 #  Notify at beginning and end of job
 #$ -m n
 #$ -r n
-#$ -o /dev/null
+#$ -o logs/markDup.sh.$TASK_ID
 #$ -t 1-60
 
 gatk="${PWD}/gatk-4.1.4.1/gatk"
 
-bamdir=$(awk 'NR == 1' bamdir.txt)
+bamdir=$(awk 'NR == 1' inbam_dir.txt)
 bamfilename=$(awk 'NR == 1' inbam_file_name.txt)
 parentdir=$(awk 'NR == 1' out_dir.txt)
 
